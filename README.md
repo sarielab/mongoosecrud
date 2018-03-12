@@ -3,6 +3,7 @@ express + mongoose crud
 ========================================================
 review dan latihan
 ========================================================
+note: ingat urutan commit dari bawah ke atas (untuk langkah pengerjaan)
 1. [basicCRUD](https://github.com/sarielab/mongoosecrud/commits/basicCRUD_orang_buku) (orang+buku)<br/>
  __Model__ <br/>
    >__Orang__: nama <br/>
