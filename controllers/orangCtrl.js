@@ -1,4 +1,5 @@
 const Orang = require('../models/orang')
+const Pinjam = require('../models/pinjam')
 
 const getAll = function (req, res) {
   Orang.find({})
@@ -16,6 +17,30 @@ const getOne = function (req, res) {
   .exec(function(err, orang){
     if (err) res.send({err:err})
     else res.send(orang)
+  })
+}
+
+//http://mongoosejs.com/docs/populate.html
+const getListPinjam = function (req, res) {
+  let id = req.params.id
+
+  Orang.findById(id)
+  .exec(function(err, orang){
+    if (err) res.send({err:err})
+    else {
+      Pinjam.find({_peminjam: id})
+      //populate _buku
+      //dan populate genre di dalam _buku
+      .populate({
+        path: '_buku',
+        populate: {path: 'genre'},
+        select: 'judul genre'
+      })
+      .exec(function(err, pinjams) {
+        if (err) res.send({err:err})
+        else res.send(pinjams)
+      })
+    }
   })
 }
 
@@ -65,6 +90,7 @@ const remove = function (req, res) {
 module.exports = {
   getAll,
   getOne,
+  getListPinjam,
   create,
   update,
   remove
