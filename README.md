@@ -27,11 +27,18 @@ review dan latihan
      > getAll -> populate _pengarang (ambil nama aja) _genre<br/>
         getOne -> populate _pengarang (ambil nama aja), _genre<br/>
 4. [LATIHAN] populate Orang ----> STOP!!!! Bikin dulu....<br/>
-  __Controller__ OrangCtrl.js
-     > getOne -> populate _buku_favorite (ambil judul aja)
+   __Model__ <br/>
+     > __Orang__: nama, ___buku_favorit__ (ref tbl_buku)<br/>
+      __Buku__: judul, _pengarang, [genre] <br/>
+      __Genre__: genre_name
+     
+   __Controller__ OrangCtrl.js<br/>
+      > update -> if (typeof req.body._buku_favorit !== 'undefined') orang.update === req.body._buku_favorit<br/>
+      > getOne -> populate _buku_favorite (ambil judul aja)<br/>
+     
 5. [LATIHAN] bikin pinjam (di PinjamCtrl)<br/>
   __Model__ <br/>
-   > __Orang__: nama <br/>
+   > __Orang__: nama, _buku_favorit <br/>
      __Buku__: judul, _pengarang, [genre], [list_peminjam] (ref tbl_orang) <br/>
      __Genre__: genre_name<br/>
      __Pinjam__: _buku (ref tbl_buku), _peminjam (ref tbl_orang), tgl_pinjam<br/>
