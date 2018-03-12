@@ -9,8 +9,16 @@ const login = function(req, res) {
       let is_login = auth.checkPassword(req.body.password, orang.password)
       if (!is_login) res.send({err: 'Invalid name/password'})
       else {
-        res.send('Login!')
+        // res.send('Login!')
+
         //create token
+        /* kita ga mau kasi liat password */
+        let orang_dt = {
+          nama: orang.nama
+        }
+        let token = auth.createToken(orang_dt)
+
+        res.send({token: token})
       }
     }
   })
