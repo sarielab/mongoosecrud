@@ -3,11 +3,11 @@ express + mongoose crud
 ========================================================
 review dan latihan
 ========================================================
-1. basicCRUD (orang+buku)<br/>
+1. [basicCRUD](https://github.com/sarielab/mongoosecrud/commits/basicCRUD_orang_buku) (orang+buku)<br/>
  __Model__ <br/>
    >__Orang__: nama <br/>
     __Buku__: judul, _pengarang
-2. [LATIHAN] tambah genre ke buku ---> STOP!!!! Bikin dulu... ga usah populate <br/>
+2. [LATIHAN] [tambah genre ke buku](https://github.com/sarielab/mongoosecrud/commits/2_LATIHAN_genre_buku) ---> STOP!!!! Bikin dulu... ga usah populate <br/>
  kalo bingung bs liat branch latihan/ wa poppy, no copas ya :D <br/><br/>
   __Model__ <br/>
     > __Orang__: nama <br/>
@@ -19,14 +19,14 @@ review dan latihan
    genre: genreid2<br/>
    dibikin beberapa row yg isinya genre di body<br/>
  
-3. routing genre dari buku<br/>
+3. [routing genre dari buku](https://github.com/sarielab/mongoosecrud/commits/3_routing_genre_dari_buku)<br/>
   __Route__ Buku.js<br/>
     > PUT /:id/genre (harus diatas PUT /:id biar ga ketimpa)<br/>
       
     __Controller__ BukuCtrl.js<br/>
      > getAll -> populate _pengarang (ambil nama aja) _genre<br/>
         getOne -> populate _pengarang (ambil nama aja), _genre<br/>
-4. [LATIHAN] populate Orang ----> STOP!!!! Bikin dulu....<br/>
+4. [LATIHAN] [populate Orang](https://github.com/sarielab/mongoosecrud/commits/4_latihan_populate_orang) ----> STOP!!!! Bikin dulu....<br/>
    __Model__ <br/>
      > __Orang__: nama, ___buku_favorit__ (ref tbl_buku)<br/>
       __Buku__: judul, _pengarang, [genre] <br/>
@@ -36,7 +36,7 @@ review dan latihan
       > update -> if (typeof req.body._buku_favorit !== 'undefined') orang.update === req.body._buku_favorit<br/>
       > getOne -> populate _buku_favorite (ambil judul aja)<br/>
      
-5. [LATIHAN] bikin pinjam (di PinjamCtrl)<br/>
+5. [LATIHAN] [bikin pinjam](https://github.com/sarielab/mongoosecrud/commits/5_latihan_pinjam) (di PinjamCtrl)<br/>
   __Model__ <br/>
    > __Orang__: nama, _buku_favorit <br/>
      __Buku__: judul, _pengarang, [genre], [list_peminjam] (ref tbl_orang) <br/>
@@ -58,14 +58,14 @@ review dan latihan
 
    __Controller__ BukuCtrl.js<br/>
     > ga usah insert date karena dah di default 
-6. user_getListPinjam<br/>
+6. [user_getListPinjam](https://github.com/sarielab/mongoosecrud/commits/6_user_getListPinjam)<br/>
    __Controller__ OrangCtrl.js<br/>
    > getUserPinjam<br/>
    
    __Routes__ orang.js<br/>
    > GET /:id/pinjam<br/>
    
-7. authorization<br/>
+7. [authorization](https://github.com/sarielab/mongoosecrud/commits/7_authorization)<br/>
    > Ubah format password yg didatabase biar aman<br/>
    > salah 1 npm yg kita pakai [crypto-js](https://www.npmjs.com/package/crypto-js)
    __step:__ <br/>
@@ -86,7 +86,7 @@ review dan latihan
       mau buka login gimana? localhost:3000/login<br/>
       mau buka register gimana? localhost:3000/register<br/>
     
- 8. token<br/>
+ 8. [token](https://github.com/sarielab/mongoosecrud/commits/8_jsonwebtoken)<br/>
    npm [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)<br/>
    WHY? 
     > It is important to understand that the purpose of using JWT is NOT to hide or obscure data in any way. The reason why     JWT are used is to prove that the sent data was actually created by an authentic source. <br/>
@@ -95,6 +95,12 @@ review dan latihan
     > The purpose of encoding data is to transform the data’s structure. Signing data allows the data receiver to verify the authenticity of the source of the data
     > the main purpose of encryption is to secure the data and to prevent unauthorized access <br/>
   
+    [more info about jwt](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec) <br/>
+    > alur >> habis user login => dapetin userdata -> ubah ke token -> return __token__<br/>
+    > masukin __token__ yg dari /login di headers sebelah tab body (di postman) buat akses page yg khusus (bersambung ke rabu....)<br/>
+    
+    1. helpers> auth.js createToken, getUserDetail<br/>
+    2. controllers > loginCtrl.js => login (orang_dt kecuali password diubah pake auth.createToken) </br>
    
    =============================================================<br/>
    rabu, dikelas<br/>
