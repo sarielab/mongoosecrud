@@ -65,12 +65,33 @@ review dan latihan
    __Routes__ orang.js<br/>
    > GET /:id/pinjam<br/>
    
-7. authorization + token<br/>
-========================================================<br/>
-rabu, dikelas<br/>
-validation (model & controller)<br/>
-client<br/>
-=========================================================
+7. authorization<br/>
+   > Ubah format password yg didatabase biar aman<br/>
+   > salah 1 npm yg kita pakai [crypto-js](https://www.npmjs.com/package/crypto-js)
+   __step:__ <br/>
+   1. helpers> auth.js<br/>
+   2. Models > orang.js :<br/> 
+    > password:String <br/>
+   3. Controllers __loginCtrl.js__<br/>
+   > login => cek findOrang(nama) => check password <br/>
+     register => create orang, tapi hash password dulu<br/>
+     
+   4. Routes > index.js<br/>
+   > POST /login<br/>
+    POST /register<br/>
+    
+    5. server.js <br/>
+    > let index = require('routes/index.js') <br/>
+      app.use('/', index) => artinya ga ada embel2 lsg localhost:3000/namafunction<br/>
+      mau buka login gimana? localhost:3000/login<br/>
+      mau buka register gimana? localhost:3000/register<br/>
+    
+ 8. token<br/>
+ ========================================================<br/>
+ rabu, dikelas<br/>
+ validation (model & controller)<br/>
+ client<br/>
+ =========================================================
 
 # starting
 1. clone this repository
