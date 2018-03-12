@@ -58,8 +58,13 @@ review dan latihan
 
    __Controller__ BukuCtrl.js<br/>
     > ga usah insert date karena dah di default 
-  
-6. authorization + token<br/>
+6. user_getListPinjam
+   __Controller__ OrangCtrl.js<br/>
+   > getUserPinjam<br/>
+   __Routes__ orang.js<br/>
+   > GET /:id/pinjam
+   
+7. authorization + token<br/>
 ========================================================<br/>
 rabu, dikelas<br/>
 validation (model & controller)<br/>
