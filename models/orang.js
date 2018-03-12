@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 let orangSchema = mongoose.Schema({
   nama: String,
+  password: String,
   _buku_favorit: {type: mongoose.Schema.ObjectId, ref:'tbl_buku'}
 })
 
