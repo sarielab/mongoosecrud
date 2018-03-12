@@ -2,7 +2,9 @@
 ========================================================<br/>
 review dan latihan<br/>
 ========================================================<br/>
-note: ingat urutan commit dari bawah ke atas (untuk langkah pengerjaan)
+note: 
+- ingat urutan commit dari bawah ke atas (untuk langkah pengerjaan)
+- yg ada tanda [LATIHAN] dicoba bikin dulu sesuai petunjuk
 1. [basicCRUD](https://github.com/sarielab/mongoosecrud/commits/basicCRUD_orang_buku) (orang+buku)<br/>
  __Model__ <br/>
    >__Orang__: nama <br/>
