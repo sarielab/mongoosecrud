@@ -87,11 +87,20 @@ review dan latihan
       mau buka register gimana? localhost:3000/register<br/>
     
  8. token<br/>
- ========================================================<br/>
- rabu, dikelas<br/>
- validation (model & controller)<br/>
- client<br/>
- =========================================================
+   npm [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)<br/>
+   WHY? 
+    > It is important to understand that the purpose of using JWT is NOT to hide or obscure data in any way. The reason why     JWT are used is to prove that the sent data was actually created by an authentic source. <br/>
+    
+    encrypted (for password) vs jsonwebtoken (signing & encoding)<br/>
+    > The purpose of encoding data is to transform the data’s structure. Signing data allows the data receiver to verify the authenticity of the source of the data
+    > the main purpose of encryption is to secure the data and to prevent unauthorized access <br/>
+  
+   
+   =============================================================<br/>
+   rabu, dikelas<br/>
+   validation (model & controller)<br/>
+   client<br/>
+   ===============================================================<br/>
 
 # starting
 1. clone this repository
