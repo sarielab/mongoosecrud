@@ -1,4 +1,5 @@
 const Buku = require('../models/buku')
+const Pinjam = require('../models/pinjam')
 
 const getAll = function (req, res) {
   Buku.find({})
@@ -86,11 +87,44 @@ const remove = function (req, res) {
   })
 }
 
+const pinjam = function (req, res) {
+  let id = req.params.id
+  let pinjam = new Pinjam({
+    _buku: id,
+    _peminjam: req.body._peminjam
+    //tgl_pinjam dah default jadi ga usah diisi
+  })
+  //1. caribuku
+  //2. buku ketemu maka save peminjam
+  //3. kalo sukses simpan peminjam maka masukin list_peminjam di buku
+  Buku.findById(id)
+  .exec(function(err, buku){
+    if (err) res.send({err:err})
+    else {
+      //start pinjam save
+      pinjam.save(function(err, s_pinjam){
+        if (err) res.send({err:err})
+        else {
+          //jika list_peminjam awal kosong maka kasi array kosong
+          if (typeof buku.list_peminjam === 'undefined') buku.list_peminjam = []
+          buku.list_peminjam.push(req.body._peminjam)
+
+          buku.save(function(err, u_buku){
+            if (err) res.send({err:err})
+            else res.send(s_pinjam)
+          })
+        }//end else
+      })//end pinjam save
+    }//end else
+  })//end Buku.findById
+}//end function pinjam
+
 module.exports = {
   getAll,
   getOne,
   create,
   update,
   updateGenre,
-  remove
+  remove,
+  pinjam
 }

@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 let bukuSchema = mongoose.Schema({
   judul: String,
   _pengarang: {type: mongoose.Schema.ObjectId, ref: 'tbl_orang'},
+  list_peminjam: [{type: mongoose.Schema.ObjectId, ref:'tbl_orang'}],
   genre : [{type: mongoose.Schema.ObjectId, ref: 'tbl_genre'}]
 })
 
