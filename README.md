@@ -106,8 +106,10 @@ note:
    
    =============================================================<br/>
    rabu, dikelas<br/>
+   bahas lagi ttg pengunaan jsonwebtoken<br/>
    validation (model & controller)<br/>
    client<br/>
+   kalau keburu loopback<br/>
    ===============================================================<br/>
 
 # starting
