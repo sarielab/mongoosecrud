@@ -5,7 +5,11 @@ review dan latihan<br/>
 note: 
 - ingat urutan commit dari bawah ke atas (untuk langkah pengerjaan)
 - yg ada tanda [LATIHAN] dicoba bikin dulu sesuai petunjuk
+- bikin folder baru (jangan di clone)
 1. [basicCRUD](https://github.com/sarielab/mongoosecrud/commits/basicCRUD_orang_buku) (orang+buku)<br/>
+ - npm init<br/>
+ - npm i -S express mongoose body-parser dotenv<br/>
+ - buat .env sesuai ketentuan di starting nomor 3<br/><br/>
  __Model__ <br/>
    >__Orang__: nama <br/>
     __Buku__: judul, _pengarang
@@ -69,7 +73,7 @@ note:
    
 7. [authorization](https://github.com/sarielab/mongoosecrud/commits/7_authorization)<br/>
    > Ubah format password yg didatabase biar aman<br/>
-   > salah 1 npm yg kita pakai [crypto-js](https://www.npmjs.com/package/crypto-js)
+   - npm i -S [crypto-js](https://www.npmjs.com/package/crypto-js)
    __step:__ <br/>
    1. helpers> auth.js<br/>
    2. Models > orang.js :<br/> 
@@ -87,22 +91,25 @@ note:
       app.use('/', index) => artinya ga ada embel2 lsg localhost:3000/namafunction<br/>
       mau buka login gimana? localhost:3000/login<br/>
       mau buka register gimana? localhost:3000/register<br/>
+      
     
- 8. [token](https://github.com/sarielab/mongoosecrud/commits/8_jsonwebtoken)<br/>
-   npm [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)<br/>
-   WHY? 
-    > It is important to understand that the purpose of using JWT is NOT to hide or obscure data in any way. The reason why     JWT are used is to prove that the sent data was actually created by an authentic source. <br/>
+  8. [token](https://github.com/sarielab/mongoosecrud/commits/8_jsonwebtoken)<br/>
+    - npm i -S [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
     
-    encrypted (for password) vs jsonwebtoken (signing & encoding)<br/>
-    > The purpose of encoding data is to transform the data’s structure. Signing data allows the data receiver to verify the authenticity of the source of the data
-    > the main purpose of encryption is to secure the data and to prevent unauthorized access <br/>
-  
-    [more info about jwt](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec) <br/>
-    > alur >> habis user login => dapetin userdata -> ubah ke token -> return __token__<br/>
-    > masukin __token__ yg dari /login di headers sebelah tab body (di postman) buat akses page yg khusus (bersambung ke rabu....)<br/>
-    
-    1. helpers> auth.js createToken, getUserDetail<br/>
-    2. controllers > loginCtrl.js => login (orang_dt kecuali password diubah pake auth.createToken) </br>
+      WHY? <br/>
+
+       > It is important to understand that the purpose of using JWT is NOT to hide or obscure data in any way. The reason why     JWT are used is to prove that the sent data was actually created by an authentic source. <br/>
+
+       encrypted (for password) vs jsonwebtoken (signing & encoding)<br/>
+       > The purpose of encoding data is to transform the data’s structure. Signing data allows the data receiver to verify the authenticity of the source of the data
+       > the main purpose of encryption is to secure the data and to prevent unauthorized access <br/>
+
+       [more info about jwt](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec) <br/>
+       > alur >> habis user login => dapetin userdata -> ubah ke token -> return __token__<br/>
+       > masukin __token__ yg dari /login di headers sebelah tab body (di postman) buat akses page yg khusus (bersambung ke rabu....)<br/>
+
+       1. helpers> auth.js createToken, getUserDetail<br/>
+       2. controllers > loginCtrl.js => login (orang_dt kecuali password diubah pake auth.createToken) </br>
    
    =============================================================<br/>
    rabu, dikelas<br/>
@@ -112,7 +119,7 @@ note:
    kalau keburu loopback<br/>
    ===============================================================<br/>
 
-# starting
+# starting this repo
 1. clone this repository
 2. npm install
 3. create .env file 
