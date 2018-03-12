@@ -15,10 +15,12 @@ const getOne = function (req, res) {
     else res.send(buku)
   })
 }
+
 const create = function (req, res) {
   let buku = new Buku({
     judul: req.body.judul,
-    _pengarang: req.body._pengarang
+    _pengarang: req.body._pengarang,
+    genre: req.body.genre
   })
 
   buku.save(function(err, s_buku){
