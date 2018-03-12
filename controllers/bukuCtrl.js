@@ -2,6 +2,8 @@ const Buku = require('../models/buku')
 
 const getAll = function (req, res) {
   Buku.find({})
+  .populate('_pengarang','nama')
+  .populate('genre')
   .exec(function(err, bukus){
     if (err) res.send({err:err})
     else res.send(bukus)
@@ -9,7 +11,10 @@ const getAll = function (req, res) {
 }
 const getOne = function (req, res) {
   let id = req.params.id
+
   Buku.findById(id)
+  .populate('_pengarang','nama')
+  .populate('genre')
   .exec(function(err, buku){
     if (err) res.send({err:err})
     else res.send(buku)
@@ -38,7 +43,7 @@ const update = function (req, res) {
       //kalau _pengarang dikirim di body postman maka simpan yg baru, jk tidak pake yg lama
       if(typeof req.body._pengarang !== 'undefined')
         buku._pengarang = req.body._pengarang
-      if (typeof buku.judul !== 'undefined')
+      if (typeof req.body.judul !== 'undefined')
         buku.judul = req.body.judul
 
       buku.save(function(err, u_buku){
@@ -49,6 +54,24 @@ const update = function (req, res) {
   })
 }
 
+const updateGenre = function (req, res) {
+  let id = req.params.id
+
+  Buku.findById(id)
+  .exec(function(err, buku){
+    if (err) res.send({err:err})
+    else {
+      if(typeof req.body.genre !== 'undefined')
+        buku.genre = req.body.genre
+      else buku.genre = []
+
+      buku.save(function(err, u_buku){
+        if (err) res.send({err:err})
+        else res.send(u_buku)
+      })
+    }
+  })
+}
 const remove = function (req, res) {
   let id = req.params.id
   Buku.findById(id)
@@ -68,5 +91,6 @@ module.exports = {
   getOne,
   create,
   update,
+  updateGenre,
   remove
 }
