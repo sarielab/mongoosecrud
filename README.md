@@ -21,8 +21,7 @@ review dan latihan
  
 3. routing genre dari buku<br/>
   __Route__ Buku.js<br/>
-    > PUT /:id/add-genre (harus diatas PUT /:id biar ga ketimpa)<br/>
-      PUT /:id/delete-genre<br/>
+    > PUT /:id/genre (harus diatas PUT /:id biar ga ketimpa)<br/>
       
     __Controller__ BukuCtrl.js<br/>
      > getAll -> populate _pengarang (ambil nama aja) _genre<br/>
