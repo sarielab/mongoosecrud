@@ -1,0 +1,27 @@
+{
+  "name": "mongoosecrud",
+  "version": "1.0.0",
+  "description": "express + mongoose crud ======================================================== review dan latihan ======================================================== 1. basicCRUD (orang+buku)<br/>  __Model__ <br/>    >__Orang__: nama <br/>     __Buku__: judul, _pengarang 2. [LATIHAN] tambah genre ke buku ---> STOP!!!! Bikin dulu... ga usah populate <br/>  kalo bingung bs liat branch latihan/ wa poppy, no copas ya :D <br/><br/>   __Model__ <br/>     > __Orang__: nama <br/>      __Buku__: judul, _pengarang, [genre] <br/>      __Genre__: genre_name 3. routing genre dari buku<br/>   __Route__ Buku.js<br/>     > PUT /:id/add-genre (harus diatas PUT /:id biar ga ketimpa)<br/>       PUT /:id/delete-genre<br/>",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarielab/mongoosecrud.git"
+  },
+  "keywords": [],
+  "author": "ppsari <poppymighty@gmail.com> (https://github.com/ppsari/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarielab/mongoosecrud/issues"
+  },
+  "homepage": "https://github.com/sarielab/mongoosecrud#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.9"
+  }
+}
