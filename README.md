@@ -13,6 +13,12 @@ review dan latihan
     > __Orang__: nama <br/>
      __Buku__: judul, _pengarang, [genre] <br/>
      __Genre__: genre_name
+
+   Mau insert banyak genre gimana dari postman? <br/>
+   genre: genreid1<br/>
+   genre: genreid2<br/>
+   dibikin beberapa row yg isinya genre di body<br/>
+ 
 3. routing genre dari buku<br/>
   __Route__ Buku.js<br/>
     > PUT /:id/add-genre (harus diatas PUT /:id biar ga ketimpa)<br/>
