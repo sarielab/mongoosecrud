@@ -25,24 +25,32 @@ review dan latihan
       
     __Controller__ BukuCtrl.js<br/>
      > getAll -> populate _pengarang (ambil nama aja) _genre<br/>
-        getOne -> populate _pengarang, [listPeminjam] (ambil nama aja), _genre<br/>
+        getOne -> populate _pengarang (ambil nama aja), _genre<br/>
 4. [LATIHAN] populate Orang ----> STOP!!!! Bikin dulu....<br/>
   __Controller__ OrangCtrl.js
      > getOne -> populate _buku_favorite (ambil judul aja)
 5. [LATIHAN] bikin pinjam (di PinjamCtrl)<br/>
+  __Model__ <br/>
+   > __Orang__: nama <br/>
+     __Buku__: judul, _pengarang, [genre], [list_peminjam] (ref tbl_orang) <br/>
+     __Genre__: genre_name<br/>
+     __Pinjam__: _buku (ref tbl_buku), _peminjam (ref tbl_orang), tgl_pinjam<br/>
+     
+     
+   Model berubah di buku.js dan pinjam.js<br/>
    __Model__ Pinjam.js<br/> 
-    >_buku_id ref Buku<br/>
-    _peminjam ref Orang<br/>
-    tgl_pinjam: {<br/>
+    > _buku_id ref tbl_buku<br/>
+     _peminjam ref tbl_orang<br/>
+     tgl_pinjam: {<br/>
          type: Date,<br/>
          default: Date.now //kalo ga diinsert lsg dimasukin waktu sekarang<br/>
-    }<br/>
-    
-   __Route__ Buku.js<br/>
-    > PUT /:id/pinjam (harus diatas PUT /:id biar ga ketimpa)<br/>
-    
-  __Controller__ BukuCtrl.js<br/>
-    ga usah insert date karena dah di default 
+     }<br/>
+     
+    __Route__ Buku.js<br/>
+     > PUT /:id/pinjam (harus diatas PUT /:id biar ga ketimpa)<br/>
+
+   __Controller__ BukuCtrl.js<br/>
+    > ga usah insert date karena dah di default 
   
 6. authorization + token<br/>
 ========================================================<br/>
