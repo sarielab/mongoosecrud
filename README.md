@@ -14,7 +14,7 @@ review dan latihan
      __Buku__: judul, _pengarang, [genre] <br/>
      __Genre__: genre_name
 
-   Mau insert banyak genre gimana dari postman? <br/>
+   Masukin banyak genre (pas create Buku) gimana dari postman? <br/>
    genre: genreid1<br/>
    genre: genreid2<br/>
    dibikin beberapa row yg isinya genre di body<br/>
